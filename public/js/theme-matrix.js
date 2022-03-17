@@ -32,8 +32,15 @@ for (let x = 0; x < c.width / font_size; x++) {
 ctx.fillStyle = "#000000";
 ctx.fillRect(0, 0, c.width, c.height);
 
+// TODO remove
+let sum = 0;
+let count = 0;
+
 // drawing the characters
 function draw() {
+  // TODO remove
+  const start = performance.now();
+
   // Black BG for the canvas
   // translucent BG to show trail
   ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
@@ -65,6 +72,10 @@ function draw() {
       drops[i] = 1;
     }
   }
+
+  // TODO remove
+  sum += performance.now() - start;
+  console.log(sum / ++count);
 }
 
 setInterval(draw, 35);
